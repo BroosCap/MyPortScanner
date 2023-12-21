@@ -22,7 +22,8 @@ def portScanner():
                 open_ports.append(port)
                 print(f"{port}  portu AÇIK")
         s.close()
-        print("Eğer hiçbir port gözükmüyorsa hedef ip nin filtrelendiği düşünülebilir.\nBunun sonucu olarak gizli mod gereklidir.(gelecek)")
+        if not open_ports:
+            print("Eğer hiçbir port gözükmüyorsa hedef ip nin filtrelendiği düşünülebilir.\nBunun sonucu olarak gizli mod gereklidir.(gelecek)")
     else:
         if s.connect_ex((host, port)) == 0:
             open_ports.append(port)
